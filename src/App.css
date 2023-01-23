@@ -14,19 +14,18 @@
 }
 .grid-container {
   display: grid;
-  column-gap: 50px;
-  row-gap: 50px;
-  grid-template-columns: auto auto ;
+  column-gap: 20px;
+  row-gap: 20px;
+  grid-template-columns: auto auto;
   background-color: #232920;
   padding: 10px;
 }
 
 .grid-item {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 5px;
-  font-size: 30px;
+  padding: 2px;
+  font-size: 20px;
   text-align: center;
+  cursor: pointer;
 }
 
 .App-header {
@@ -46,7 +45,7 @@
 .button {
   display: inline-block;
   border-radius: 8px;
-  padding: 16px 42px;
+  padding: 5px 22px;
   transition: opacity .3s ease;
   clip-path: polygon(18px 0,100% 0,calc(100% - 18px) 100%,0 100%);
   cursor: pointer;
