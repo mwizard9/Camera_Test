@@ -6,6 +6,7 @@ import {
   BrowserRouter as Router, Routes, Route
 } from "react-router-dom";
 import Category from './Components/Category';
+import SelectImage from './Components/SelectImage';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route exact path='/' element={<Home/>}></Route>
           <Route exact path='/about' element={<About />}></Route>
           <Route exact path='/category' element={<Category />}></Route>
+          <Route exact path='/selectImage' element={<SelectImage />}></Route>
         </Routes>
       </Router>
     </div>
