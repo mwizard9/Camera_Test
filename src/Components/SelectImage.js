@@ -42,7 +42,7 @@ const SelectImage = () => {
         <>
             <div className='container'>
 
-                <div className="container mx-3 my-3 d-flex flex-row">
+                <div className="container mx-3 my-5 d-flex flex-row">
                     <div className="container">
                         <img onClick={displayImage} src="blank.jpg" alt='canvas' name="canvas"
                             style={{ height: '500px', width: '500px' }} /><br />
