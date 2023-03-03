@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 function Home() {
   return (
-<>    <div id="carouselExampleInterval" className="container carousel slide my-5" style={{ backgroundColor: 'black' }} data-bs-ride="carousel">
+<>    <div id="carouselExampleInterval" className="container carousel slide my-5" style={{ backgroundColor: 'black'}} data-bs-ride="carousel">
       <div className="carousel-inner">
         <div className="carousel-item active" data-bs-interval="3000">
           <img src="nighttime.jpeg" style={{ height: '500px', width: '500px' }} alt="..." />
