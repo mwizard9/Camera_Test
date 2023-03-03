@@ -3,8 +3,8 @@ import { Link } from "react-router-dom"
 
 function Navbar() {
     return (
-        <div>
-            <nav className="navbar fixed-top navbar-expand-lg bg-body-tertiary">
+        <div style={{marginBottom:'8%'}}>
+            <nav className="navbar fixed-top navbar-expand-lg bg-body-tertiary" >
                 <div className="container-fluid">
                     <Link className="navbar-brand" to="/"><img src="favicon.png" alt="Camera" width="26" height="26" />CamRate</Link  >
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,12 +31,16 @@ function Navbar() {
                                 </ul>
                             </li>
                         </ul>
-                        <div style={{marginRight:"8%"}}>
+                        <div className='container' style={{marginRight:"8%"}}>
                         <li className="btn btn-outline-success">
                        
-                            <Link className="nav-link" to="/about">AdminPannel</Link  >
+                            <Link className="nav-link" to="/alogin">AdminPannel</Link  >
                         </li>
                         </div>
+                        <form className="d-flex" role="search">
+                        <Link className="btn btn-outline-primary mx-1" to="/login" role="button">Login</Link>
+                        <Link className="btn btn-outline-primary mx-1" to="/signup" role="button">Signup</Link>
+                        </form>
                     </div>
                 </div>
             </nav>
