@@ -46,12 +46,12 @@ const SelectImage = () => {
                     <div className="container">
                         <img onClick={displayImage} src="blank.jpg" alt='canvas' name="canvas"
                             style={{ height: '500px', width: '500px' }} /><br />
-                        <span className="thumb">thumb_up</span>
+                        
                     </div>
                     <div className='container'>
                         <img onClick={displayImage} src="img-1.jpg" alt='canva' name="canva"
                             style={{ height: '500px', width: '500px' }} /><br />
-                        <span className="thumb">thumb_up</span>
+                       
                     </div>
                 </div>
 
