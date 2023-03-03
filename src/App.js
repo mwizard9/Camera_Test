@@ -10,6 +10,7 @@ import SelectImage from './Components/SelectImage';
 import Login from "./Authentication/Login";
 import Signup from "./Authentication/Signup"
 import ALogin from './AdminSite/Login';
+import Result from './Components/Result';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Route exact path="/signup" element={<Signup />}>
           </Route>
           <Route exact path="/alogin" element={<ALogin />}></Route>
+        <Route exact path="/result" element={<Result/>}></Route>
         </Routes>
       </Router>
     </div>

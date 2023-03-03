@@ -73,7 +73,7 @@ const SelectImage = () => {
                        
                     </div>
                 </div>
-                <Link className='button my-2' to="/selectImage" >Submit</Link>
+                <Link className='button my-2' to="/result" >Submit</Link>
 
             </div>
         </>
