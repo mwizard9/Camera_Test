@@ -19,7 +19,7 @@ const Login = (props) => {
     if (json.success){
         //save the auth token and redirect
         localStorage.setItem('token',json.jwtData);
-        history("/")
+        history("/admind")
     }
     else{
         alert("invalid credentials")
