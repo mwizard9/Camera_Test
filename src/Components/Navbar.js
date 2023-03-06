@@ -23,10 +23,10 @@ function Navbar() {
                                     Category
                                 </Link  >
                                 <ul className="dropdown-menu">
-                                    <li><Link className="dropdown-item" to="/">Standard Mode</Link  ></li>
-                                    <li><Link className="dropdown-item" to="/">Portrait Mode</Link  ></li>
-                                    <li><Link className="dropdown-item" to="/">Low-Light Mode</Link  ></li>
-                                    <li><Link className="dropdown-item" to="/">Selfie Mode</Link  ></li>
+                                    <li><Link className="dropdown-item" to="/login">Standard Mode</Link  ></li>
+                                    <li><Link className="dropdown-item" to="/login">Portrait Mode</Link  ></li>
+                                    <li><Link className="dropdown-item" to="/login">Low-Light Mode</Link  ></li>
+                                    <li><Link className="dropdown-item" to="/login">Selfie Mode</Link  ></li>
 
                                 </ul>
                             </li>
@@ -37,9 +37,8 @@ function Navbar() {
                             <Link className="nav-link" to="/alogin">AdminPannel</Link  >
                         </li>
                         </div>
-                        <form className="d-flex" role="search">
-                        <Link className="btn btn-outline-primary mx-1" to="/login" role="button">Login</Link>
-                        <Link className="btn btn-outline-primary mx-1" to="/signup" role="button">Signup</Link>
+                        <form className="d-flex">
+                        <Link className="btn btn-outline-primary mx-1" to="/useddevice" role="button">UsedDevice</Link>
                         </form>
                     </div>
                 </div>
