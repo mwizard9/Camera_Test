@@ -9,13 +9,13 @@ function Category() {
                     <div className="col my-2">
                     <h2>Standard Mode</h2>
                         <img style={{ height: '400px', width: '400px' }} src="nighttime.jpeg" alt="nighttime" /><br/>
-                        <Link className='button my-2' to="/selectImage" >VOTE</Link>
+                        <Link className='button my-2' to="/login" >VOTE</Link>
                     </div>
                     
                     <div className="col my-2" >
                     <h2>Selfie Mode</h2>
                         <img style={{ height: '400px', width: '400px' }} src="nighttime.jpeg" alt="nighttime" /><br/>
-                        <Link className='button my-2' to="/selectImage" >VOTE</Link>
+                        <Link className='button my-2' to="/login" >VOTE</Link>
                     </div>
                     
                   
@@ -24,15 +24,15 @@ function Category() {
                
                 <div className="row my-5">
                     <div className="col my-2">
-                        <h2>Standard Mode</h2>
+                        <h2>LowLight Mode</h2>
                         <img style={{ height: '400px', width: '400px' }} src="nighttime.jpeg" alt="nighttime" /><br/>
-                        <Link className='button my-2' to="/selectImage" >VOTE</Link>
+                        <Link className='button my-2' to="/login" >VOTE</Link>
                     </div>
                     
                     <div className="col my-2" >
-                    <h2>Standard Mode</h2>
+                    <h2>Portait Mode</h2>
                         <img style={{ height: '400px', width: '400px' }} src="nighttime.jpeg" alt="nighttime" /><br/>
-                        <Link className='button my-2' to="/selectImage" >VOTE</Link>
+                        <Link className='button my-2' to="/login" >VOTE</Link>
                     </div>
                     
                    

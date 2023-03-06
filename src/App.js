@@ -11,6 +11,8 @@ import Login from "./Authentication/Login";
 import Signup from "./Authentication/Signup"
 import ALogin from './AdminSite/Login';
 import Result from './Components/Result';
+import UsedDevice from './Components/UsedDevice';
+import AdminDashboard from './AdminSite/AdminDashboard';
 
 function App() {
   return (
@@ -27,6 +29,8 @@ function App() {
           </Route>
           <Route exact path="/alogin" element={<ALogin />}></Route>
         <Route exact path="/result" element={<Result/>}></Route>
+        <Route exact path="/useddevice" element={<UsedDevice/>}></Route>
+        <Route exact path="/admind" element={<AdminDashboard/>}></Route>
         </Routes>
       </Router>
     </div>
