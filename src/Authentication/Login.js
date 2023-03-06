@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 const Login = (props) => {
@@ -19,7 +20,7 @@ const Login = (props) => {
     if (json.success){
         //save the auth token and redirect
         localStorage.setItem('token',json.jwtData);
-        history("/")
+        history("/selectImage")
     }
     else{
         alert("invalid credentials")
@@ -32,6 +33,7 @@ const Login = (props) => {
     }
   return (
     <div className='container' >
+      <h1>Please,first login to vote</h1>
      <form onSubmit={handleSubmit}>
   <div className="mb-3">
     <label htmlFor="emai1" className="form-label">Email address</label>
@@ -43,7 +45,9 @@ const Login = (props) => {
     <input type="password" className="form-control" value={credentials.password} onChange={onChange} id="password" name="password"/>
   </div>
   
-  <button type="submit" className="btn btn-primary" >Submit</button>
+  <button type="submit" className="btn btn-primary" >Submit</button><br/>
+  <p>If you don't have account then Register here</p>
+  <Link className="btn btn-outline-primary mx-1" to="/signup" role="button">Signup</Link>
 </form>
     </div>
   )
