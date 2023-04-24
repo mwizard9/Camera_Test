@@ -2,8 +2,19 @@ const express = require('express');
 const router = express.Router();
 const fetchuser = require('../middleware/fetchuser');
 const { body, validationResult } = require('express-validator');
-const Notes = require('../models/Image');
+const ImageModel = require('../models/Image');
+const multer = require('multer')
 
+const Storage = multer.diskStorage({
+    destination: 'uploads',
+    filename:(req,file,cb) => {
+        cb(null, file.originalname);
+    }
+});
+
+const upload = multer({
+    storage:Storage
+}).single('testImage')
 // ROUTE 1:Get all the notes
 router.get('/fetchallnotes', fetchuser, async (req, res) => {
     try {
@@ -18,32 +29,24 @@ router.get('/fetchallnotes', fetchuser, async (req, res) => {
 })
 
 // ROUTE 2:add the notes
-router.post('/addnotes', fetchuser, [
-    body('title', 'Enter a valid title').isLength({ min: 3 }),
-    body('description', 'enter a valid email').isLength({ min: 6 }),
-
-], async (req, res) => {
-    try {
-        const { title, description, tag } = req.body;
-        //If there are errors, return Bad request and the errors
-        const errors = validationResult(req);
-        if (!errors.isEmpty()) {
-            return res.status(400).json({ errors: errors.array() });
+router.post('/upload', (req, res) => {
+    upload(req,res,(err)=>{
+        if(err){
+            console.log(err)
         }
-
-        const note = new Notes({
-            title, description, tag, user: req.user.id
-
-        })
-        const saveNotes = await note.save();
-
-
-        res.json(saveNotes)
-    } catch (error) {
-        console.error(error.message);
-        res.status(500).send("internal server error")
-    }
-
+        else{
+            const newImage = new ImageModel({
+              name: req.body.name,
+              image:{
+                data:req.file.filename,
+                contentType:'image/png'
+              }  
+            })
+            newImage.save()
+            .then(()=>res.send('successfully uploaded'))
+            .catch((err)=> console.log(err));
+        }
+    })
 })
 
 // ROUTE 3:update the notes, login required
