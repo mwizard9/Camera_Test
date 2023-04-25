@@ -16,18 +16,6 @@ const upload = multer({
     storage:Storage
 }).single('testImage')
 // ROUTE 1:Get all the notes
-router.get('/fetchallnotes', fetchuser, async (req, res) => {
-    try {
-        const notes = await Notes.find({ user: req.user.id });
-        res.json(notes)
-    } catch (error) {
-        console.error(error.message);
-        res.status(500).send("internal server error")
-    }
-
-
-})
-
 // ROUTE 2:add the notes
 router.post('/upload', (req, res) => {
     upload(req,res,(err)=>{
