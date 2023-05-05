@@ -13,6 +13,7 @@ import ALogin from './AdminSite/Login';
 import Result from './Components/Result';
 import UsedDevice from './Components/UsedDevice';
 import AdminDashboard from './AdminSite/AdminDashboard';
+import PhoneResult from './Result/Result';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
+        {/* <Route exact path='/' element={< PhoneResult/>}></Route> */}
           <Route exact path='/' element={<Home />}></Route>
           <Route exact path='/about' element={<About />}></Route>
           <Route exact path='/category' element={<Category />}></Route>
