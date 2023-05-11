@@ -23,6 +23,13 @@ const data = [
         lose: 10,
         smartphone: 'Relme Note7'
     },
+    {
+        key: '2',
+        rank: '3',
+        win: 22,
+        lose: 10,
+        smartphone: 'Relme Note7'
+    },
 ];
 const Result = () =>
     <Table dataSource={data}>

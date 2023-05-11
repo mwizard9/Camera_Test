@@ -8,8 +8,6 @@ function About() {
               and choose your own best smartphone camera</h3><br/>
              <h1>How To Vote</h1>
              <p>Use your left/right arrow keys to pick the better quality image, or double tap on an image if you are on a phone</p>
-        
-      
     </div>
   )
 }
