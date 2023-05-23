@@ -16,7 +16,7 @@ const SelectImage = () => {
 
     const displayImage = () => {
         if (clickedImages.length === imagesArray.length) {
-          // Reset clicked images and counts
+         
           setClickedImages([]);
           setImagesArray(
             imagesArray.map(image => ({ ...image, win: 0, lose: 0 }))
