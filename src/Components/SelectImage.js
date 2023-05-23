@@ -82,6 +82,7 @@ const SelectImage = () => {
               />
               {imagesArray.map(image => (
                 <div className='container' key={image.id}>
+                    <p>Id: {image.id}</p>
                   <p>Win: {image.win}</p>
                   <p>Lose: {image.lose}</p>
                 </div>
