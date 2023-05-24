@@ -44,9 +44,10 @@ const SelectImage = () => {
   //     }
   // };
   const handleSubmit = () => {
+    const dataToSend = imagesArray.map(({ id, win, lose }) => ({ id, win, lose }));
     setTimeout(() => {
-        navigate("/insertsupportivedoc", {
-          state: { enteredvalue: res },
+        navigate("/result", {
+          state: { data: dataToSend },
         });
       });
   }
