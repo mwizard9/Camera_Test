@@ -7,11 +7,11 @@ const SelectImage = () => {
   const navigate = useNavigate();
   const [clickedImages, setClickedImages] = useState([]);
   const [imagesArray, setImagesArray] = useState([
-    { id: 1, url: "three.jpeg", win: 0, lose: 0 },
-    { id: 2, url: "nighttime.jpeg", win: 0, lose: 0 },
-    { id: 3, url: "portait.jpeg", win: 0, lose: 0 },
-    { id: 4, url: "pack.jpg", win: 0, lose: 0 },
-    { id: 5, url: "shiva.jpg", win: 0, lose: 0 },
+    { id: 1, url: "three.jpeg", win: 0, lose: 0,name:"iphone11"},
+    { id: 2, url: "nighttime.jpeg", win: 0, lose: 0,name:"Samsung M22"},
+    { id: 3, url: "portait.jpeg", win: 0, lose: 0,name:"Relme Note7"},
+    { id: 4, url: "pack.jpg", win: 0, lose: 0,name:"Vivo Y-20"},
+    { id: 5, url: "shiva.jpg", win: 0, lose: 0,name:"Mi"},
   ]);
   var usedImages = {};
   var usedImagesCount = 0;
@@ -44,7 +44,7 @@ const SelectImage = () => {
   //     }
   // };
   const handleSubmit = () => {
-    const dataToSend = imagesArray.map(({ id, win, lose }) => ({ id, win, lose }));
+    const dataToSend = imagesArray.map(({ id, win, lose,name }) => ({ id, win, lose,name }));
     setTimeout(() => {
         navigate("/result", {
           state: { data: dataToSend },
@@ -119,8 +119,9 @@ const SelectImage = () => {
               style={{ height: "500px", width: "500px" }}
             />
             {imagesArray.map((image) => (
-              <div className="container" key={image.id}>
+              <div className="container" key={image.name}>
                 <p>Id: {image.id}</p>
+                <p>Name: {image.name}</p>
                 <p>Win: {image.win}</p>
                 <p>Lose: {image.lose}</p>
               </div>

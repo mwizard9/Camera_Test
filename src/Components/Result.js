@@ -55,7 +55,7 @@ const Data = location.state.data;
         rank: index + 1,
         win: item.win,
         lose: item.lose,
-        smartphone: item.id, // Assuming the smartphone column represents the ID
+        smartphone: item.name, // Assuming the smartphone column represents the ID
       }));
     
       
