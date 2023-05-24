@@ -1,8 +1,10 @@
+import { Button } from "antd";
 import React from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SelectImage = () => {
+  const navigate = useNavigate();
   const [clickedImages, setClickedImages] = useState([]);
   const [imagesArray, setImagesArray] = useState([
     { id: 1, url: "three.jpeg", win: 0, lose: 0 },
@@ -41,6 +43,13 @@ const SelectImage = () => {
   //         displayImage();
   //     }
   // };
+  const handleSubmit = () => {
+    setTimeout(() => {
+        navigate("/insertsupportivedoc", {
+          state: { enteredvalue: res },
+        });
+      });
+  }
 
   const displayImage = () => {
     if (clickedImages.length === imagesArray.length) {
@@ -117,9 +126,7 @@ const SelectImage = () => {
             ))}
           </div>
         </div>
-        <Link className="button my-2" to="/result">
-          Submit
-        </Link>
+        <Button onClick={handleSubmit}>Submit</Button>
       </div>
     </>
   );
