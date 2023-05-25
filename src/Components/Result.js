@@ -1,76 +1,63 @@
+import React, { useEffect, useState } from 'react';
 import { Table } from 'antd';
 import { useLocation } from 'react-router-dom';
 
 const { Column, ColumnGroup } = Table;
 
-// const data = [
-//     {
-//         key: '1',
-//         rank: '1',
-//         win: 32,
-//         lose: 4,
-//         smartphone: 'iphone11'
-//     },
-//     {
-//         key: '2',
-//         rank: '2',
-//         lose: 8,
-//         win: 25,
-//         smartphone: 'Samsung M22'
-//     },
-//     {
-//         key: '2',
-//         rank: '3',
-//         win: 22,
-//         lose: 10,
-//         smartphone: 'Relme Note7'
-//     },
-//     {
-//         key: '2',
-//         rank: '3',
-//         win: 22,
-//         lose: 10,
-//         smartphone: 'Relme Note7'
-//     },
-// ];
+const Result = () => {
+  const location = useLocation();
+  const [data, setData] = useState([]);
 
-const Result = () =>{
-    const location = useLocation();
+  useEffect(() => {
+    const eloData = location.state.data.map(item => ({
+      ...item,
+      eloRating: 1000, // Set initial Elo rating value
+    }));
 
+    eloData.forEach((itemA, indexA) => {
+      eloData.forEach((itemB, indexB) => {
+        if (indexA !== indexB) {
+          const ratingA = itemA.eloRating;
+          const ratingB = itemB.eloRating;
+          const winProbabilityA = getWinProbability(ratingA, ratingB);
+          const winProbabilityB = getWinProbability(ratingB, ratingA);
+          const K = 32; // Elo rating adjustment constant
 
-const Data = location.state.data;
-    console.log(Data,'this is the values of state')
-    // Data.forEach((item) => {
-    //     const id = item.id;
-    //     const win = item.win;
-    //     const lose = item.lose;
-      
-    //     // Perform operations with id, win, and lose
-    //     console.log("ID:", id);
-    //     console.log("Win:", win);
-    //     console.log("Lose:", lose);
-    //   });
-    const dataSource = Data.map((item, index) => ({
-        key: index,
-        rank: index + 1,
-        win: item.win,
-        lose: item.lose,
-        smartphone: item.name, // Assuming the smartphone column represents the ID
-      }));
-    
-      
-return(
+          if (itemA.win && !itemB.win) {
+            // Item A wins against item B
+            itemA.eloRating += K * (1 - winProbabilityA);
+            itemB.eloRating += K * (0 - winProbabilityB);
+          } else if (!itemA.win && itemB.win) {
+            // Item B wins against item A
+            itemA.eloRating += K * (0 - winProbabilityA);
+            itemB.eloRating += K * (1 - winProbabilityB);
+          }
+        }
+      });
+    });
+
+    eloData.sort((a, b) => b.eloRating - a.eloRating);
+    setData(eloData);
+  }, [location.state.data]);
+
+  const getWinProbability = (ratingA, ratingB) => {
+    const difference = ratingB - ratingA;
+    return 1 / (1 + Math.pow(10, difference / 400));
+  };
+
+  return (
     <>
-    <Table dataSource={dataSource}>
+      <Table dataSource={data}>
         <Column title="Rank" dataIndex="rank" key="rank" />
         <ColumnGroup title="Vote">
-            <Column title="Win" dataIndex="win" key="win" />
-            <Column title="Lose" dataIndex="lose" key="lose" />
+          <Column title="Win" dataIndex="win" key="win" />
+          <Column title="Lose" dataIndex="lose" key="lose" />
         </ColumnGroup>
-
-        <Column title="SmartPhone" dataIndex="smartphone" key="smartphone" />
-    </Table>
+        <Column title="SmartPhone" dataIndex="name" key="name" />
+        <Column title="Elo-Rating" dataIndex="eloRating" key="eloRating" />
+      </Table>
     </>
-)
-}
+  );
+};
+
 export default Result;
