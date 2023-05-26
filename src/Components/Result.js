@@ -104,7 +104,12 @@ const Result = () => {
     });
 
     eloData.sort((a, b) => b.eloRating - a.eloRating);
-    setData(eloData);
+
+    const rankedData = eloData.map((item, index) => ({
+        ...item,
+        rank: index + 1,
+      }));
+    setData(rankedData);
     
   }, [location.state.data]);
  
