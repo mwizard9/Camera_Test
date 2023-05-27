@@ -197,7 +197,7 @@ router.post('/adminlogin', [
   })
 
   //fetch all users
-  router.get('/getusers', async (req, res) => {
+  router.post('/getallusers', async (req, res) => {
     try {
       const users = await User.find().select("-password");
       res.send(users);
