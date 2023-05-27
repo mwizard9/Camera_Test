@@ -5,10 +5,10 @@ import styled from 'styled-components'
 
 const Login = (props) => {
     const[credentials, setCredentials] = useState({email:"",password:""})  
-    let history = useNavigate()
+    let navigate = useNavigate()
     const handleSubmit= async(e)=>{
         e.preventDefault();
-        const response = await fetch("http://localhost:5000/api/auth/login", {
+        const response = await fetch("http://localhost:5000/api/auth/adminlogin", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -19,7 +19,7 @@ const Login = (props) => {
     if (json.success){
         //save the auth token and redirect
         localStorage.setItem('token',json.jwtData);
-        history("/admind")
+        navigate("/admind")
     }
     else{
         alert("invalid credentials")

@@ -110,7 +110,7 @@ try {
 })
 module.exports = router
 
-//Create a Admin using : POST "/api/auth/createUser". Doesn't require Auth
+//Create a Admin using : POST "/api/auth/createAdmin". Doesn't require Auth
 router.post('/createAdmin', [
   body('email', 'Enter a valid name').isEmail(),
   body('name', 'enter a valid email').isLength({ min: 3 }),
@@ -195,3 +195,15 @@ router.post('/adminlogin', [
       res.status(500).send("internal server error")
     }
   })
+
+  //fetch all users
+  router.get('/getusers', async (req, res) => {
+    try {
+      const users = await User.find().select("-password");
+      res.send(users);
+    } catch (error) {
+      console.error(error.message);
+      res.status(500).send("Internal server error");
+    }
+  });
+  module.exports = router;
