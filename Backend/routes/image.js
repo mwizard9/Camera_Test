@@ -4,13 +4,17 @@ const fetchuser = require('../middleware/fetchuser');
 const { body, validationResult } = require('express-validator');
 const ImageModel = require('../models/Image');
 const multer = require('multer')
+const fs = require('fs');
+const path = require('path');
+
 
 const Storage = multer.diskStorage({
-    destination: 'uploads',
-    filename:(req,file,cb) => {
-        cb(null, file.originalname);
-    }
+  destination: 'uploads',
+  filename:(req,file,cb) => {
+      cb(null, file.originalname);
+  }
 });
+
 
 const upload = multer({
     storage:Storage
@@ -26,7 +30,7 @@ router.post('/upload', (req, res) => {
             const newImage = new ImageModel({
               name: req.body.name,
               image:{
-                data:req.file.filename,
+                data:fs.readFileSync("uploads/" + req.file.filename) ,
                 contentType:'image/png'
               }  
             })
@@ -85,6 +89,43 @@ router.delete('/deletenote/:id', fetchuser, async (req, res) => {
         res.status(500).send("internal server error")
     }
 })
+
+// fetch all images
+// router.get('/fetchallimages', (req, res) => {
+//     const uploadsDir = path.join(__dirname, '../../uploads');
+    
+//     fs.readdir(uploadsDir, (err, files) => {
+//       if (err) {
+//         console.error(err);
+//         res.status(500).send('Internal server error');
+//       } else {
+//         const imageList = files.map((file) => ({
+//           imageName: file,
+//           imageUrl: `/uploads/${file}`,
+//         }));
+//         res.json(imageList);
+//       }
+//     });
+//   });
+  
+router.get('/fetchallimages', async (req, res) => {
+ const allData = await ImageModel.find()
+ res.json(allData)   
+});
+// router.get('/fetchallimages', async (req, res) => {
+//     try {
+//       const images = await ImageModel.find();
+  
+//       if (images.length === 0) {
+//         return res.status(404).json({ error: 'No images found' });
+//       }
+  
+//       res.json(images);
+//     } catch (error) {
+//       console.error(error.message);
+//       res.status(500).send('Internal server error');
+//     }
+//   });
 
 
 module.exports = router
