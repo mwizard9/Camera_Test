@@ -7,10 +7,14 @@ const AdminDashboard = () => {
   const handleUser=()=>{
     navigate('/userdetails')
   }
+  const handleImage=()=>{
+    navigate('/imagedetails')
+  }
   return (
     <div>
-      welcome to admin panel
+      welcome to admin panel<br/>
       <Button onClick={handleUser}>User Details</Button>
+      <Button onClick={handleImage}>Images Details</Button>
     </div>
   )
 }

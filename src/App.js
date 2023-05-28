@@ -15,6 +15,7 @@ import UsedDevice from './Components/UsedDevice';
 import AdminDashboard from './AdminSite/AdminDashboard';
 import PhoneResult from './Result/Result';
 import UserTable from './AdminSite/UserData';
+import ImageList from './AdminSite/ImageData';
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
         <Route exact path="/useddevice" element={<UsedDevice/>}></Route>
         <Route exact path="/admind" element={<AdminDashboard/>}></Route>
         <Route exact path="/userdetails" element={<UserTable/>}></Route>
+        <Route exact path="/imagedetails" element={<ImageList/>}></Route>
         </Routes>
       </Router>
     </div>
