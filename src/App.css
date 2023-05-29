@@ -62,6 +62,18 @@
 .button:hover {
   opacity: .7;
 }
+.image-upload-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  margin: 0 auto;
+  padding: 20px;
+  background: linear-gradient(to bottom right, #f6d365, #fda085);
+}
+.ant-upload.ant-upload-drag .ant-upload {
+  background-color: #fff;
+}
 
 @keyframes App-logo-spin {
   from {
