@@ -4,6 +4,10 @@ import { useNavigate } from 'react-router-dom'
 
 const AdminDashboard = () => {
   const navigate= useNavigate();
+  const handleAdmin =()=>{
+    navigate('/createadmin')
+
+  }
   const handleUser=()=>{
     navigate('/userdetails')
   }
@@ -13,6 +17,7 @@ const AdminDashboard = () => {
   return (
     <div>
       welcome to admin panel<br/>
+      <Button onClick={handleAdmin}>Create New Admin</Button>
       <Button onClick={handleUser}>User Details</Button>
       <Button onClick={handleImage}>Images Details</Button>
     </div>

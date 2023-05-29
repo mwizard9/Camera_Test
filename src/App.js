@@ -16,6 +16,7 @@ import AdminDashboard from './AdminSite/AdminDashboard';
 import PhoneResult from './Result/Result';
 import UserTable from './AdminSite/UserData';
 import ImageList from './AdminSite/ImageData';
+import AdminRegistration from './AdminSite/adminRegistration';
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
         <Route exact path="/admind" element={<AdminDashboard/>}></Route>
         <Route exact path="/userdetails" element={<UserTable/>}></Route>
         <Route exact path="/imagedetails" element={<ImageList/>}></Route>
+        <Route exact path="/createadmin" element={<AdminRegistration/>}></Route>
         </Routes>
       </Router>
     </div>
