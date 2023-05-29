@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { List } from 'antd';
+import { List,Row, Col,Card } from 'antd';
 
 const ImageList = () => {
   const [images, setImages] = useState([]);
@@ -15,22 +15,22 @@ const ImageList = () => {
 
   return (
     <List
-      dataSource={images}
-      renderItem={(singleData) => {
-        const url = URL.createObjectURL(
-          new Blob([new Uint8Array(singleData.image.data.data)], { type: 'image/png' })
-        );
+    grid={{ gutter: 16, column: 4 }} // Set the number of columns and gutter space
+    dataSource={images}
+    renderItem={(singleData) => {
+      const url = URL.createObjectURL(
+        new Blob([new Uint8Array(singleData.image.data.data)], { type: 'image/png' })
+      );
 
-        return (
-          <List.Item key={singleData._id}>
-            <List.Item.Meta
-              avatar={<img src={url} alt={singleData.name} />}
-              title={singleData.name}
-            />
-          </List.Item>
-        );
-      }}
-    />
+      return (
+        <List.Item>
+          <Card cover={<img src={url} alt={singleData.name} style={{ height: '300px', objectFit: 'cover' }} />}>
+            <Card.Meta title={singleData.name} />
+          </Card>
+        </List.Item>
+      );
+    }}
+  />
   );
 };
 
