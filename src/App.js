@@ -17,6 +17,7 @@ import PhoneResult from './Result/Result';
 import UserTable from './AdminSite/UserData';
 import ImageList from './AdminSite/ImageData';
 import AdminRegistration from './AdminSite/adminRegistration';
+import ImageUploadForm from './AdminSite/UploadImage';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
         <Route exact path="/userdetails" element={<UserTable/>}></Route>
         <Route exact path="/imagedetails" element={<ImageList/>}></Route>
         <Route exact path="/createadmin" element={<AdminRegistration/>}></Route>
+        <Route exact path="/uploadimage" element={<ImageUploadForm/>}></Route>
         </Routes>
       </Router>
     </div>

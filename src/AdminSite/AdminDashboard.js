@@ -14,12 +14,16 @@ const AdminDashboard = () => {
   const handleImage=()=>{
     navigate('/imagedetails')
   }
+  const handleImageUpload=()=>{
+    navigate('/uploadimage')
+  }
   return (
     <div>
       welcome to admin panel<br/>
       <Button onClick={handleAdmin}>Create New Admin</Button>
       <Button onClick={handleUser}>User Details</Button>
       <Button onClick={handleImage}>Images Details</Button>
+      <Button onClick={handleImageUpload}>Upload New Image</Button>
     </div>
   )
 }

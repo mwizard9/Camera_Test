@@ -126,6 +126,22 @@ router.get('/fetchallimages', async (req, res) => {
 //       res.status(500).send('Internal server error');
 //     }
 //   });
+router.delete('/deleteimage/:id', async (req, res) => {
+    try {
+      const image = await ImageModel.findById(req.params.id);
+      if (!image) {
+        return res.status(404).send("Image not found");
+      }
+  
+      // Delete the image from the database
+      await ImageModel.findByIdAndRemove(req.params.id);
+  
+      res.json({ success: "Image deleted successfully" });
+    } catch (error) {
+      console.error(error.message);
+      res.status(500).send("Internal server error");
+    }
+  });
 
 
 module.exports = router
