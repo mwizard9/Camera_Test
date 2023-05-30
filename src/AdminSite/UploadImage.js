@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
-import { Form, Input, Button, Upload, message } from 'antd';
+import { Form, Input, Button, Upload, message, Select } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 
 const ImageUploadForm = () => {
   const [form] = Form.useForm();
   const [fileList, setFileList] = useState([]);
+  const [category, setCategory] = useState('');
 
   const handleClick = async () => {
     try {
       const formData = new FormData();
       formData.append('name', form.getFieldValue('name'));
       formData.append('testImage', fileList[0].originFileObj);
+      formData.append('category', category);
 
       const response = await fetch('http://localhost:5000/api/image/upload', {
         method: 'POST',
@@ -21,6 +23,7 @@ const ImageUploadForm = () => {
         message.success('Image uploaded successfully');
         form.resetFields();
         setFileList([]);
+        setCategory('');
       } else {
         throw new Error('Image upload failed');
       }
@@ -40,6 +43,17 @@ const ImageUploadForm = () => {
       <Form.Item label="Name" name="name" rules={[{ required: true, message: 'Please enter a name' }]}>
         <Input />
       </Form.Item>
+      <Form.Item
+          label="Category"
+          name="category"
+          rules={[{ required: true, message: 'Please select a category' }]}
+        >
+          <Select value={category} onChange={setCategory}>
+            <Select.Option value="selfie">Selfie</Select.Option>
+            <Select.Option value="standard">Standard</Select.Option>
+            <Select.Option value="portrait">Portrait</Select.Option>
+          </Select>
+        </Form.Item>
       <Form.Item
         label="Image"
         name="testImage"
