@@ -15,5 +15,10 @@ const ImageSchema = new Schema({
         type: Date,
         default:Date.now
     },
+    category: {
+        type: String, // Change the data type to String
+        enum: ['selfie', 'standard', 'portrait'],
+        default: 'standard'
+      }
   });
   module.exports = ImageModel= mongoose.model('imagemodel', ImageSchema);

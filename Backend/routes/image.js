@@ -32,7 +32,8 @@ router.post('/upload', (req, res) => {
               image:{
                 data:fs.readFileSync("uploads/" + req.file.filename) ,
                 contentType:'image/png'
-              }  
+              }, 
+              category: req.body.category 
             })
             newImage.save()
             .then(()=>res.send('successfully uploaded'))
