@@ -70,7 +70,10 @@ const ImageList = () => {
                   <Button danger onClick={() => handleDelete(singleData._id)}>Delete</Button>,
                 ]}
               >
-                <Card.Meta title={singleData.name} />
+                <Card.Meta 
+                title={singleData.name} 
+                description={`Category: ${singleData.category}`}
+                />
               </Card>
             </List.Item>
           );
