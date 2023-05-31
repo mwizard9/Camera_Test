@@ -74,6 +74,119 @@
 .ant-upload.ant-upload-drag .ant-upload {
   background-color: #fff;
 }
+/* .dashboard-container {
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin: 50px auto;
+  max-width: 400px;
+} */
+
+h1 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Customize Ant Design buttons */
+.ant-btn {
+  background-color: #1890ff;
+  border-color: #1890ff;
+  color: #fff;
+}
+
+.ant-btn-primary {
+  background-color: #40a9ff;
+  border-color: #40a9ff;
+}
+
+.ant-btn:hover,
+.ant-btn:focus {
+  color: #fff;
+  background-color: #40a9ff;
+  border-color: #40a9ff;
+}
+
+.dashboard-container {
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin: 50px auto;
+  max-width: 400px;
+  animation: fade-in 0.5s ease-in-out;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.user-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.user-icon {
+  font-size: 36px;
+  color: #1890ff;
+  margin-bottom: 10px;
+  border-radius: 50%; /* Add rounded border */
+  padding: 8px; /* Add padding for spacing */
+  background-color: #f2f2f2; /* Add background color for contrast */
+}
+
+.admin-name {
+  font-size: 18px;
+  color: #333;
+}
+h1 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+  transition: color 0.3s ease-in-out;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Customize Ant Design buttons */
+.ant-btn {
+  background-color: #1890ff;
+  border-color: #1890ff;
+  color: #fff;
+  transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.ant-btn-primary {
+  background-color: #40a9ff;
+  border-color: #40a9ff;
+}
+
+.ant-btn:hover,
+.ant-btn:focus {
+  color: #fff
+}
 
 @keyframes App-logo-spin {
   from {

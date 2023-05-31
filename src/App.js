@@ -22,7 +22,7 @@ import ImageUploadForm from './AdminSite/UploadImage';
 function App() {
   return (
     <div className="App">
-      <Router>
+       <Router basename="/bliendCameraTest/">
         <Navbar />
         <Routes>
         {/* <Route exact path='/' element={< PhoneResult/>}></Route> */}
