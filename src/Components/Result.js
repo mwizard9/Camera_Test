@@ -68,24 +68,33 @@
 // export default Result;
 import React, { useEffect, useState } from 'react';
 import { Table } from 'antd';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const { Column, ColumnGroup } = Table;
 
 const Result = () => {
   const location = useLocation();
   const [data, setData] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const eloData = location.state.data.map(item => ({
+    const user = JSON.parse(localStorage.getItem("usertoken"));
+    if (user===null) {
+      navigate("/login");
+    }
+  }, []);
+
+  useEffect(() => {
+    const eloData = location?.state?.data?.map(item => ({
       ...item,
       eloRating: 1000, // Set initial Elo rating value
     }));
+   
 
     const K = 32; // Elo rating adjustment constant
 
-    eloData.forEach((itemA, indexA) => {
-      eloData.forEach((itemB, indexB) => {
+    eloData?.forEach((itemA, indexA) => {
+      eloData?.forEach((itemB, indexB) => {
         if (indexA !== indexB) {
           const ratingA = itemA.eloRating;
           const ratingB = itemB.eloRating;
@@ -103,15 +112,15 @@ const Result = () => {
       });
     });
 
-    eloData.sort((a, b) => b.eloRating - a.eloRating);
+    eloData?.sort((a, b) => b.eloRating - a.eloRating);
 
-    const rankedData = eloData.map((item, index) => ({
+    const rankedData = eloData?.map((item, index) => ({
         ...item,
         rank: index + 1,
       }));
     setData(rankedData);
     
-  }, [location.state.data]);
+  }, [location?.state?.data]);
  
 
   return (
