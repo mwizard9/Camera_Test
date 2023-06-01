@@ -1,7 +1,7 @@
 import { Button } from "antd";
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useRoutes } from "react-router-dom";
 
 const SelectImage = () => {
   const navigate = useNavigate();
@@ -13,6 +13,8 @@ const SelectImage = () => {
     { id: 4, url: "pack.jpg", win: 0, lose: 0,name:"Vivo Y-20"},
     { id: 5, url: "shiva.jpg", win: 0, lose: 0,name:"Mi"},
   ]);
+ 
+   
   var usedImages = {};
   var usedImagesCount = 0;
   //   const displayImage = () => {
@@ -43,6 +45,17 @@ const SelectImage = () => {
   //         displayImage();
   //     }
   // };
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("usertoken"));
+    if (user===null) {
+      navigate("/login");
+    }
+  }, []);
+
+  // const user = JSON.parse(localStorage.getItem("usertoken"));
+  // if(user==null){
+  //   return navigate("/login")
+  //  }
   const handleSubmit = () => {
     const dataToSend = imagesArray.map(({ id, win, lose,name }) => ({ id, win, lose,name }));
     setTimeout(() => {
@@ -50,6 +63,11 @@ const SelectImage = () => {
           state: { data: dataToSend },
         });
       });
+  }
+
+  const handleLogout = () => {
+    localStorage.clear();
+    navigate("/login")
   }
 
   const displayImage = () => {
@@ -89,10 +107,15 @@ const SelectImage = () => {
     document.getElementsByName("canvas")[0].src = selectedImage.url;
     document.getElementsByName("canva")[0].src = nonClickedImage.url;
   }};
+  const user = JSON.parse(localStorage.getItem("usertoken"));
+  
+  // console.log(user.name,'this is user name')
 
   return (
     <>
       <div className="container">
+      <Button onClick={handleLogout}>Logout</Button>
+        <h3>Welcome <spam style={{color:'red'}}>{user?.name}</spam>, You can vote below by clicking image</h3>
         <div className="container mx-3 my-5 d-flex flex-row">
           <div className="container">
             <img
@@ -100,7 +123,7 @@ const SelectImage = () => {
               src="daytime.jpeg"
               alt="canvas"
               name="canvas"
-              style={{ height: "500px", width: "500px" }}
+              style={{ height: "500px", width: "500px",cursor:"pointer" }}
             />
             {imagesArray.map((image) => (
               <div className="container" key={image.id}>
@@ -116,7 +139,7 @@ const SelectImage = () => {
               src="nighttime.jpeg"
               alt="canva"
               name="canva"
-              style={{ height: "500px", width: "500px" }}
+              style={{ height: "500px", width: "500px",cursor:"pointer" }}
             />
             {imagesArray.map((image) => (
               <div className="container" key={image.name}>
