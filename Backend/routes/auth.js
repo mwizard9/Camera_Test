@@ -41,6 +41,7 @@ router.post('/createUser', [
           id: user.id
         }
       }
+      
       const jwtData = jwt.sign(data, JWT_SECRET);
       success=true;
       res.json({ success,jwtData })
@@ -85,9 +86,13 @@ router.post('/login', [
           id: user.id
         }
       }
-      const jwtData = jwt.sign(data, JWT_SECRET);
+      const expirationTime = '1m';
+      const jwtData = jwt.sign(data, JWT_SECRET, { expiresIn: expirationTime });
+      const decodedToken = jwt.verify(jwtData, JWT_SECRET);
+      const expiryTimestamp = decodedToken.exp * 1000;
+      const expiryDate = new Date(expiryTimestamp).toLocaleString();
       success=true;
-      res.json({ success,jwtData ,name:user.name})
+      res.json({ success,jwtData ,name:user.name,expiryDate})
     }
     catch (error) {
       console.error(error.message);
@@ -144,6 +149,7 @@ router.post('/createAdmin', [
         }
       }
       const jwtData = jwt.sign(data, JWT_SECRET);
+      
       success=true;
       res.json({ success,jwtData })
 
@@ -186,9 +192,13 @@ router.post('/adminlogin', [
           id: user.id
         }
       }
-      const jwtData = jwt.sign(data, JWT_SECRET);
+      const expirationTime = '1m';
+      const jwtData = jwt.sign(data, JWT_SECRET, { expiresIn: expirationTime });
+      const decodedToken = jwt.verify(jwtData, JWT_SECRET);
+      const expiryTimestamp = decodedToken.exp * 1000;
+      const expiryDate = new Date(expiryTimestamp).toLocaleString();
       success=true;
-      res.json({ success,jwtData,name:user.name })
+      res.json({ success,jwtData,name:user.name,expiryDate })
     }
     catch (error) {
       console.error(error.message);
