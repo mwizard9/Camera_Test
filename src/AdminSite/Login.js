@@ -20,7 +20,7 @@ const Login = (props) => {
       console.log(json,"this is json data")
         //save the auth token and redirect
         // localStorage.setItem('token',json);
-        localStorage.setItem("token", JSON.stringify(json))
+        localStorage.setItem("usertoken", JSON.stringify(json))
         navigate("/admind")
     }
     else{

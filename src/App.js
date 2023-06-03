@@ -36,7 +36,9 @@ function App() {
           <Route exact path="/alogin" element={<ALogin />}></Route>
           <Route exact path="/result" element={<Result />}></Route>
           <Route exact path="/useddevice" element={<UsedDevice />}></Route>
-          <Route exact path="/admind" element={<AdminDashboard />}></Route>
+          <Route path="/admind" element={<PrivateOutlet />}>
+            <Route index element={<AdminDashboard />} />
+            </Route>
           <Route exact path="/userdetails" element={<UserTable />}></Route>
           <Route exact path="/imagedetails" element={<ImageList />}></Route>
           <Route

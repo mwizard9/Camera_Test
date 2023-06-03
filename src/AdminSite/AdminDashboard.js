@@ -23,8 +23,8 @@ const AdminDashboard = () => {
   };
 
   // const user = localStorage.getItem('token.name');
-  const user = JSON.parse(localStorage.getItem("token"));
-  console.log(user.name,'this is user name')
+  const user = JSON.parse(localStorage.getItem("usertoken"));
+  console.log(user?.name,'this is user name')
   return (
     <div className="dashboard-container">
       <div className="user-profile">
