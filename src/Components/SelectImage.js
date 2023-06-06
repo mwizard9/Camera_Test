@@ -114,7 +114,7 @@ const SelectImage = () => {
   return (
     <>
       <div className="container">
-      <Button onClick={handleLogout}>Logout</Button>
+      {/* <Button onClick={handleLogout}>Logout</Button> */}
         <h3>Welcome <spam style={{color:'red'}}>{user?.name}</spam>, You can vote below by clicking image</h3>
         <div className="container mx-3 my-5 d-flex flex-row">
           <div className="container">
