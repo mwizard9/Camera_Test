@@ -34,23 +34,27 @@ function App() {
           <Route exact path="/login" element={<Login />}></Route>
           <Route exact path="/signup" element={<Signup />}></Route>
           <Route exact path="/alogin" element={<ALogin />}></Route>
-          <Route exact path="/result" element={<Result />}></Route>
+          <Route path="/result" element = {<PrivateOutlet/>}>
+            <Route index element={<Result />}/> 
+          </Route>
           <Route exact path="/useddevice" element={<UsedDevice />}></Route>
           <Route path="/admind" element={<PrivateOutlet />}>
             <Route index element={<AdminDashboard />} />
             </Route>
           <Route exact path="/userdetails" element={<UserTable />}></Route>
-          <Route exact path="/imagedetails" element={<ImageList />}></Route>
+          <Route exact path="/imagedetails" element={<PrivateOutlet />}> 
+          <Route index element={<ImageList />}/>
+          </Route>
           <Route
             exact
             path="/createadmin"
             element={<AdminRegistration />}
           ></Route>
           <Route
-            exact
             path="/uploadimage"
-            element={<ImageUploadForm />}
-          ></Route>
+            element={<PrivateOutlet />}>
+              <Route index element={<ImageUploadForm />} />
+          </Route>
         </Routes>
       </Router>
     </div>

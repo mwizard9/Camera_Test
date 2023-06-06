@@ -1,30 +1,36 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Login = (props) => {
-  const [credentials, setCredentials] = useState({ email: '', password: '' });
+  const [credentials, setCredentials] = useState({ email: "", password: "" });
   let history = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch('http://localhost:5000/api/auth/login', {
-      method: 'POST',
+    const response = await fetch("http://localhost:5000/api/auth/login", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email: credentials.email, password: credentials.password }),
+      body: JSON.stringify({
+        email: credentials.email,
+        password: credentials.password,
+      }),
     });
     const json = await response.json();
     console.log(json);
     if (json.success) {
       //save the auth token and redirect
-      localStorage.setItem("usertoken", JSON.stringify(json))
+      localStorage.setItem("usertoken", JSON.stringify(json));
       // localStorage.setItem('token', json.jwtData);
-      history('/selectImage');
+      setTimeout(() => {
+        history("/selectImage");
+        window.location.reload();
+        // Reload the window after the delay
+      }, 100);
     } else {
-      alert('Invalid credentials');
+      alert("Invalid credentials");
     }
   };
 
@@ -33,43 +39,43 @@ const Login = (props) => {
   };
 
   const containerStyle = {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: '50px',
-    background: 'linear-gradient(120deg, #e0eafc, #cfdef3)',
-    padding: '20px',
-    borderRadius: '5px',
-    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-    maxWidth: '400px',
-    margin: '0 auto',
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: "50px",
+    background: "linear-gradient(120deg, #e0eafc, #cfdef3)",
+    padding: "20px",
+    borderRadius: "5px",
+    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+    maxWidth: "400px",
+    margin: "0 auto",
   };
   const headingStyle = {
-    fontSize: '24px',
-    marginBottom: '20px',
-    fontWeight: 'bold',
-    textAlign: 'center',
+    fontSize: "24px",
+    marginBottom: "20px",
+    fontWeight: "bold",
+    textAlign: "center",
   };
 
   const formGroupStyle = {
-    marginBottom: '20px',
-    width: '100%',
+    marginBottom: "20px",
+    width: "100%",
   };
 
   const buttonStyle = {
-    width: '100%',
-    backgroundColor: '#007bff',
-    color: '#fff',
-    border: 'none',
-    borderRadius: '4px',
-    padding: '10px',
-    cursor: 'pointer',
+    width: "100%",
+    backgroundColor: "#007bff",
+    color: "#fff",
+    border: "none",
+    borderRadius: "4px",
+    padding: "10px",
+    cursor: "pointer",
   };
 
   const signupLinkStyle = {
-    textAlign: 'center',
-    marginTop: '10px',
+    textAlign: "center",
+    marginTop: "10px",
   };
 
   return (

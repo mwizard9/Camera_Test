@@ -22,7 +22,7 @@ function Category() {
                     
                 </div>
                
-                <div className="row my-5">
+                {/* <div className="row my-5">
                     <div className="col my-2">
                         <h2>LowLight Mode</h2>
                         <img style={{ height: '400px', width: '400px' }} src="nighttime.jpeg" alt="nighttime" /><br/>
@@ -36,7 +36,7 @@ function Category() {
                     </div>
                     
                    
-                </div>
+                </div> */}
                 </div>
         </div>
     )

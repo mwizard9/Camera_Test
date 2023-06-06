@@ -35,7 +35,7 @@ const Login = (props) => {
   return (
     <div className='container' >
       <Button>
-      <h1>Welcome TO The Admin Panel</h1>
+     <h1> Welcome TO The Admin Panel</h1>
       </Button>
       <TomatoButton>
       <h5>This page is only for only Authorized persons<br/>
@@ -64,7 +64,7 @@ const Login = (props) => {
 
 export default Login
 
-const Button = styled.h1`
+const Button = styled.div`
   color: palevioletred;
   font-size: 1em;
   margin: 1em;
