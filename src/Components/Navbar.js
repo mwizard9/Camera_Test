@@ -9,13 +9,28 @@ function Navbar() {
     const userToken = localStorage.getItem("usertoken");
     setIsTokenAvailable(!!userToken);
   }, [isTokenAvailable]);
-
-
+  const userToken = localStorage.getItem("usertoken");
   const navigate = useNavigate();
   const handleLogout = () => {
     localStorage.clear();
     setIsTokenAvailable(false);
     navigate("/login");
+  };
+  const history = useNavigate();
+
+  const handleRedirect = () => {
+    if (!userToken) {
+      history('/login');
+    } else {
+      history('/selectImage');
+    }
+  };
+  const handleRedirectSt = () => {
+    if (!userToken) {
+      history('/login');
+    } else {
+      history('/selectImageSt');
+    }
   };
 
   return (
@@ -61,14 +76,14 @@ function Navbar() {
                 </Link>
                 <ul className="dropdown-menu">
                   <li>
-                    <Link className="dropdown-item" to="/login">
+                    <button className="dropdown-item" onClick={handleRedirectSt}>
                       Standard Mode
-                    </Link>
+                    </button>
                   </li>
                   <li>
-                    <Link className="dropdown-item" to="/login">
+                    <button className="dropdown-item" onClick={handleRedirect}>
                       Portrait Mode
-                    </Link>
+                    </button>
                   </li>
                   {/* <li><Link className="dropdown-item" to="/login">Low-Light Mode</Link  ></li>
                                     <li><Link className="dropdown-item" to="/login">Selfie Mode</Link  ></li> */}

@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const Login = (props) => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   let history = useNavigate();
+  const location = useLocation();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,7 +26,11 @@ const Login = (props) => {
       localStorage.setItem("usertoken", JSON.stringify(json));
       // localStorage.setItem('token', json.jwtData);
       setTimeout(() => {
-        history("/selectImage");
+        if (location.state && location.state.sm) {
+          history("/selectImage");
+        } else if (location.state && location.state.stm) {
+          history("/selectImageSt");
+        }
         window.location.reload();
         // Reload the window after the delay
       }, 100);

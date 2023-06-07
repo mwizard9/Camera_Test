@@ -17,6 +17,7 @@ import ImageList from "./AdminSite/ImageData";
 import AdminRegistration from "./AdminSite/adminRegistration";
 import ImageUploadForm from "./AdminSite/UploadImage";
 import PrivateOutlet from "./PrivateRoute/Private";
+import SelectImageSt from "./Components/SelectImageStandard";
 
 function App() {
   return (
@@ -30,6 +31,9 @@ function App() {
           <Route exact path="/category" element={<Category />}></Route>
           <Route path="/selectImage" element={<PrivateOutlet />}>
             <Route index element={<SelectImage />} />
+          </Route>
+          <Route path="/selectImageSt" element={<PrivateOutlet />}>
+            <Route index element={<SelectImageSt />} />
           </Route>
           <Route exact path="/login" element={<Login />}></Route>
           <Route exact path="/signup" element={<Signup />}></Route>
