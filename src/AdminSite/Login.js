@@ -21,7 +21,13 @@ const Login = (props) => {
         //save the auth token and redirect
         // localStorage.setItem('token',json);
         localStorage.setItem("usertoken", JSON.stringify(json))
-        navigate("/admind")
+        setTimeout(() => {
+          navigate("/admind")
+          window.location.reload();
+          // Reload the window after the delay
+        }, 100);
+        
+        
     }
     else{
         alert("invalid credentials")
