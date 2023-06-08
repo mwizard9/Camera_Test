@@ -34,14 +34,14 @@ function Category() {
                     <h2>Standard Mode</h2>
                         <img style={{ height: '400px', width: '400px' }} src="nighttime.jpeg" alt="nighttime" /><br/>
                         <Button className='button my-2' onClick={handleSTM}>Vote</Button>
-                        <Link className='button my-2' to="/login" >VOTE</Link>
+                        
                     </div>
                     
                     <div className="col my-2" >
                     <h2>Selfie Mode</h2>
                         <img style={{ height: '400px', width: '400px' }} src="nighttime.jpeg" alt="nighttime" /><br/>
                         <Button className='button my-2' onClick={handleSM}>Vote</Button>
-                        <Link className='button my-2' to="/login" >VOTE</Link>
+                       
                     </div>
                     
                   

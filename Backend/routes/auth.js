@@ -86,7 +86,7 @@ router.post('/login', [
           id: user.id
         }
       }
-      const expirationTime = '5m';
+      const expirationTime = '30m';
       const jwtData = jwt.sign(data, JWT_SECRET, { expiresIn: expirationTime });
       const decodedToken = jwt.verify(jwtData, JWT_SECRET);
       const expiryTimestamp = decodedToken.exp * 1000;
@@ -192,7 +192,7 @@ router.post('/adminlogin', [
           id: user.id
         }
       }
-      const expirationTime = '5m';
+      const expirationTime = '30m';
       const jwtData = jwt.sign(data, JWT_SECRET, { expiresIn: expirationTime });
       const decodedToken = jwt.verify(jwtData, JWT_SECRET);
       const expiryTimestamp = decodedToken.exp * 1000;
