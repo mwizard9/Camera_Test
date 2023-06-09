@@ -18,11 +18,12 @@ import AdminRegistration from "./AdminSite/adminRegistration";
 import ImageUploadForm from "./AdminSite/UploadImage";
 import PrivateOutlet from "./PrivateRoute/Private";
 import SelectImageSt from "./Components/SelectImageStandard";
+import Results from "./AdminSite/Result";
 
 function App() {
   return (
     <div className="App">
-      <Router basename="/bliendCameraTest/">
+      <Router basename="/blindCameraTest/">
         <Navbar />
         <Routes>
           {/* <Route exact path='/' element={< PhoneResult/>}></Route> */}
@@ -45,7 +46,9 @@ function App() {
           <Route path="/admind" element={<PrivateOutlet />}>
             <Route index element={<AdminDashboard />} />
             </Route>
-          <Route exact path="/userdetails" element={<UserTable />}></Route>
+          <Route path="/userdetails" element={<PrivateOutlet />}> 
+          <Route index element={<UserTable />} />
+          </Route>
           <Route exact path="/imagedetails" element={<PrivateOutlet />}> 
           <Route index element={<ImageList />}/>
           </Route>
@@ -59,7 +62,13 @@ function App() {
             element={<PrivateOutlet />}>
               <Route index element={<ImageUploadForm />} />
           </Route>
+          <Route
+            path="/allresult"
+            element={<PrivateOutlet />}>
+              <Route index element={<Results />}/>
+          </Route>
         </Routes>
+        
       </Router>
     </div>
   );

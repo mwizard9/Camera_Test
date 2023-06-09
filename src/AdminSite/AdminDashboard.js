@@ -21,6 +21,9 @@ const AdminDashboard = () => {
   const handleImageUpload = () => {
     navigate('/uploadimage');
   };
+  const handleResult = () =>{
+    navigate('/allresult');
+  }
 
   // const user = localStorage.getItem('token.name');
   const user = JSON.parse(localStorage.getItem("usertoken"));
@@ -39,6 +42,7 @@ const AdminDashboard = () => {
         <Button onClick={handleUser}>User Details</Button>
         <Button onClick={handleImage}>Images Details</Button>
         <Button onClick={handleImageUpload}>Upload New Image</Button>
+        {/* <Button onClick={handleResult}>Show overall Result</Button> */}
       </div>
     </div>
   );

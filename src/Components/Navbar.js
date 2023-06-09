@@ -14,20 +14,20 @@ function Navbar() {
   const handleLogout = () => {
     localStorage.clear();
     setIsTokenAvailable(false);
-    navigate("/login");
+    navigate("/");
   };
   const history = useNavigate();
 
   const handleRedirect = () => {
     if (!userToken) {
-      history('/login');
+      history('/category');
     } else {
       history('/selectImage');
     }
   };
   const handleRedirectSt = () => {
     if (!userToken) {
-      history('/login');
+      history('/category');
     } else {
       history('/selectImageSt');
     }

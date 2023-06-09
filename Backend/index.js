@@ -12,6 +12,7 @@ app.use(express.json())
 
 app.use('/api/auth',require('./routes/auth'))
 app.use('/api/image',require('./routes/image'))
+app.use('/api/result',require('./routes/result'))
 
 
 app.listen(port, () => {

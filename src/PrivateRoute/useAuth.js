@@ -4,7 +4,7 @@ const useAuth = () => {
 
   useEffect(() => {
     const accessToken = JSON.parse(localStorage.getItem("usertoken"));
-    console.log(accessToken, 'this is access token from useAuth')
+
     if (accessToken && typeof accessToken === "object") {
       setAuthenticated(true);
     } else {

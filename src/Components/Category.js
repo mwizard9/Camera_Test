@@ -32,14 +32,14 @@ function Category() {
                 <div className="row my-5">
                     <div className="col my-2">
                     <h2>Standard Mode</h2>
-                        <img style={{ height: '400px', width: '400px' }} src="nighttime.jpeg" alt="nighttime" /><br/>
+                        <img style={{ height: '400px', width: '400px' }} src="Sarup_standard.jpg" alt="nighttime" /><br/>
                         <Button className='button my-2' onClick={handleSTM}>Vote</Button>
                         
                     </div>
                     
                     <div className="col my-2" >
-                    <h2>Selfie Mode</h2>
-                        <img style={{ height: '400px', width: '400px' }} src="nighttime.jpeg" alt="nighttime" /><br/>
+                    <h2>Portrait Mode</h2>
+                        <img style={{ height: '400px', width: '400px' }} src="prashant_portait.jpg" alt="nighttime" /><br/>
                         <Button className='button my-2' onClick={handleSM}>Vote</Button>
                        
                     </div>
